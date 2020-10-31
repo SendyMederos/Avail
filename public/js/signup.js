@@ -45,6 +45,6 @@ $(document).ready(function () {
 
  async function upsertMember(memberData) {
    await $.post("api/members", memberData)
-  return document.location = "http://localhost:8080/home" 
+  return window.location.replace("/home")
  }
 });

@@ -17,6 +17,7 @@ $(document).ready(function () {
   var reqAvailInput = $(".request-session");
   var sessionId;
   var memberIdLocalStorage = parseInt(localStorage.getItem('myID').trim())
+  
 
 
   // Adding event listeners to the form to create a new object, and the button to delete
@@ -24,6 +25,11 @@ $(document).ready(function () {
   $(document).on("click", "#postIt", handleSessionFormSubmit);
   $(document).on("click", "#opt1Button", takeiton);
   $(document).on("click", "#tagAlong", tagAlong);
+  $(document).on("click", "#signout", signout);
+
+  function signout(){
+    window.location.replace("/")
+  }
 
   function takeiton(event) {
     event.preventDefault();
@@ -60,8 +66,8 @@ $(document).ready(function () {
       };
     console.log(seshMembData)
     $.post("/api/sessionMember", seshMembData)
-    document.location.reload();
-  }
+    window.location.replace("/home");
+    }
 
 
   async function handleSessionFormSubmit(event) {

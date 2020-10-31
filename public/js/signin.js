@@ -15,7 +15,7 @@ function verifyThisMember(event) {
                 if (userNameInput.val().trim() === data[i].userName) {
                     if (passwordInput.val().trim() === data[i].password) {
                         localStorage.setItem('myID', data[i].id);
-                        document.location = "http://localhost:8080/home"
+                        window.location.replace("/home")
                     }
                 }
             }
