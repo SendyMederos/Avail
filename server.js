@@ -11,16 +11,16 @@ var express = require("express");
 var db = require("./models");
 var app = express();
 
-if (process.env.JAWSDB_URL) {
-  conection = db.createConnection(process.env.JAWSDB_URL);
-} else {
+// if (process.env.JAWSDB_URL) {
+//   conection = process.createConnection(process.env.JAWSDB_URL);
+// } else {
 var PORT = process.env.PORT || 8080;
 // db.sequelize.sync().then(function () {
 //   app.listen(PORT, function () {
 //     console.log(`App listening on PORT` + PORT)
 //   });
 // });
-}
+//}
 
 
 // Sets up the Express app to handle data parsing
