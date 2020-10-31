@@ -45,7 +45,10 @@ $(document).ready(function () {
   function tagAlong(event){
     event.preventDefault();
     sessionId = $(this).parent().attr('id')
-    addseshmemb()
+    addseshmemb({
+      member_id: memberIdLocalStorage,
+      session_id: sessionId
+      });
   }
 
   function putTimesInSession(thistime) {
@@ -55,15 +58,14 @@ $(document).ready(function () {
       data: thistime
     })
       .then(function() {
-       addseshmemb();
+       addseshmemb({
+        member_id: memberIdLocalStorage,
+        session_id: sessionId
+        });
       });
   };
 
- async function addseshmemb(){
-    seshMembData ={
-      member_id: memberIdLocalStorage,
-      session_id: sessionId
-      };
+ async function addseshmemb(seshMembData){
     console.log(seshMembData)
     await $.post("/api/sessionMember", seshMembData)
     window.location.replace("/home");
@@ -114,10 +116,11 @@ $(document).ready(function () {
   // A function for creating a member. Calls upon completion
   function upsertSession(seshData) {
     $.post("/api/sessions", seshData)
-    addseshmemb();
+    addseshmemb({
+      member_id: memberIdLocalStorage,
+      session_id: sessionId
+      });
   }
-
-
 
 
 });

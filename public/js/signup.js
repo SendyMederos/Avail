@@ -16,7 +16,6 @@ $(document).ready(function () {
       console.log(memberID);
       localStorage.setItem('myID', memberID)
     });
-   // getMemberID()
     if (!firstNameInput.val().trim().trim() || !lastNameInput.val().trim().trim() || !emailInput.val().trim().trim() || !userNameInput.val().trim().trim() || !passwordInput.val().trim().trim()) {
       return;
     } else {
@@ -39,10 +38,6 @@ $(document).ready(function () {
       });
     }
   }
-  function getMemberID() {
-    
-  }
-
  async function upsertMember(memberData) {
    await $.post("api/members", memberData)
   return window.location.replace("/home")
