@@ -18,7 +18,7 @@ var app = express();
 if (process.env.JAWSDB_URL) {
   conection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
-var PORT = rocess.env.PORT || 8080;
+var PORT = process.env.PORT || 8080;
 // db.sequelize.sync().then(function () {
 //   app.listen(PORT, function () {
 //     console.log(`App listening on PORT` + PORT)
