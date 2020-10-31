@@ -7,23 +7,19 @@
 var express = require("express");
 // Sets up the Express App
 // =============================================================
+
 var db = require("./models");
 var app = express();
-// var PORT = process.env.PORT || 8080;
-// db.sequelize.sync().then(function () {
-//   app.listen(PORT, function () {
-//     console.log(`App listening on PORT` + PORT)
-//   });
-// });
+
 if (process.env.JAWSDB_URL) {
-  conection = mysql.createConnection(process.env.JAWSDB_URL);
+  conection = db.createConnection(process.env.JAWSDB_URL);
 } else {
 var PORT = process.env.PORT || 8080;
-// db.sequelize.sync().then(function () {
-//   app.listen(PORT, function () {
-//     console.log(`App listening on PORT` + PORT)
-//   });
-// });
+db.sequelize.sync().then(function () {
+  app.listen(PORT, function () {
+    console.log(`App listening on PORT` + PORT)
+  });
+});
 }
 
 
