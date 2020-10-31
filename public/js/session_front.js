@@ -59,13 +59,13 @@ $(document).ready(function () {
       });
   };
 
-  function addseshmemb(){
+ async function addseshmemb(){
     seshMembData ={
       member_id: memberIdLocalStorage,
       session_id: sessionId
       };
     console.log(seshMembData)
-    $.post("/api/sessionMember", seshMembData)
+    await $.post("/api/sessionMember", seshMembData)
     window.location.replace("/home");
     }
 
