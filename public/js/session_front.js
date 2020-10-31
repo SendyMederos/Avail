@@ -68,12 +68,14 @@ $(document).ready(function () {
  async function addseshmemb(seshMembData){
     console.log(seshMembData)
     await $.post("/api/sessionMember", seshMembData)
+    await $("#postIt").removeAttr('disabled')
     window.location.replace("/home");
     }
 
 
   async function handleSessionFormSubmit(event) {
     event.preventDefault();
+    $("#postIt").attr('disabled', 'disabled')
     await $.get("/api/sessions", function (data) {
       sessionId = data.length + 1
     })
