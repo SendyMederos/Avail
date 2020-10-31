@@ -66,7 +66,6 @@ $(document).ready(function () {
   };
 
  async function addseshmemb(seshMembData){
-    console.log(seshMembData)
     await $.post("/api/sessionMember", seshMembData)
     await $("#postIt").removeAttr('disabled')
     window.location.replace("/home");
