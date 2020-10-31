@@ -9,17 +9,21 @@ var express = require("express");
 // =============================================================
 var db = require("./models");
 var app = express();
-var PORT = process.env.PORT || 8080;
-db.sequelize.sync().then(function () {
-  app.listen(PORT, function () {
-    console.log(`App listening on PORT` + PORT)
-  });
-});
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("build"));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "build", "index.html"));
-  });
+// var PORT = process.env.PORT || 8080;
+// db.sequelize.sync().then(function () {
+//   app.listen(PORT, function () {
+//     console.log(`App listening on PORT` + PORT)
+//   });
+// });
+if (process.env.JAWSDB_URL) {
+  conection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+var PORT = rocess.env.PORT || 8080;
+// db.sequelize.sync().then(function () {
+//   app.listen(PORT, function () {
+//     console.log(`App listening on PORT` + PORT)
+//   });
+// });
 }
 
 
