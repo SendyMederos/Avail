@@ -19,7 +19,7 @@ $(document).ready(function () {
     if (!firstNameInput.val().trim().trim() || !lastNameInput.val().trim().trim() || !emailInput.val().trim().trim() || !userNameInput.val().trim().trim() || !passwordInput.val().trim().trim()) {
       return;
     } else {
-      await upsertMember({
+      upsertMember({
         first_name: firstNameInput
           .val()
           .trim(),
